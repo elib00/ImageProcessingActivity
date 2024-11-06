@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebCamLib;
 
 namespace ImageProcessingActivity
 {
     public partial class Form1 : Form
     {
         Bitmap loaded, processed;
+        Device[] devices;
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace ImageProcessingActivity
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            devices = DeviceManager.GetAllDevices();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,28 +37,27 @@ namespace ImageProcessingActivity
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter = "PNG Image|*.png|JPEG Image|*.jpg";
             saveFileDialog1.ShowDialog();
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            processed.Save(saveFileDialog1.FileName);
-        }
+            //processed.Save(saveFileDialog1.FileName);
+            string filePath = saveFileDialog1.FileName;
 
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            switch (saveFileDialog1.FilterIndex)
+            {
+                case 1:
+                    processed.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+                    break;
+                case 2:
+                    processed.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    break;
+                default:
+                    processed.Save(filePath);
+                    break;
+            }
         }
 
         private void pixelCopyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +116,35 @@ namespace ImageProcessingActivity
 
             pictureBox2.Image = processed;
 
+        }
+
+        private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BasicDIP.Histogram(ref loaded, ref processed);
+            pictureBox2.Image = processed;
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            BasicDIP.Brightness(ref loaded, ref processed, trackBar1.Value);
+            pictureBox2.Image = processed;
+        }
+
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            devices[0].ShowWindow(pictureBox1);
+        }
+
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            devices[0].Stop();
+        }
+
+        private void subtractionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 subtractionForm = new Form2();
+            subtractionForm.Show();
         }
 
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
