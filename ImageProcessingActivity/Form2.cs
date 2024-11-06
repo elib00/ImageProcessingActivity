@@ -38,7 +38,7 @@ namespace ImageProcessingActivity
 
         private void button3_Click(object sender, EventArgs e)
         {
-            resultImage = new Bitmap(imageA.Width, imageB.Height);
+            resultImage = new Bitmap(imageA.Width, imageA.Height);
             Color myGreen = Color.FromArgb(0, 255, 0);
             int grayGreen = (int)((myGreen.R + myGreen.G + myGreen.B) / 3);
             int threshold = 5;
@@ -51,7 +51,7 @@ namespace ImageProcessingActivity
                     Color backPixel = imageA.GetPixel(x, y);
                     int gray = (int)((pixel.R + pixel.G + pixel.B) / 3);
                     int subtractValue = Math.Abs(gray - grayGreen);
-                    if (subtractValue > threshold)
+                    if (subtractValue < threshold)
                     {
                         resultImage.SetPixel(x, y, backPixel);
                     }
