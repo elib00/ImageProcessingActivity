@@ -108,6 +108,7 @@ namespace ImageProcessingActivity
         }
         public static void Histogram(ref Bitmap a, ref Bitmap b)
         {
+            //crashes with PNGs
             Color pixel;
             Color gray;
             Byte grayData;
@@ -120,7 +121,7 @@ namespace ImageProcessingActivity
                     pixel = a.GetPixel(x, y);
                     grayData = (byte)((pixel.R + pixel.G + pixel.B) / 3);
                     gray = Color.FromArgb(grayData, grayData, grayData);
-                    a.SetPixel(x, y, gray);
+                    //a.SetPixel(x, y, gray);
 
                     histogramHashMap[grayData]++;
                 }
