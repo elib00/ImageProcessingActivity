@@ -92,6 +92,31 @@ namespace ImageProcessingActivity
             pictureBox2.Image = processed;
         }
 
+        private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //CS-50
+            //sepia algorithm 
+            //https://cs50.harvard.edu/college/2019/fall/psets/4/filter/less/#:~:text=Sepia,original%20values%20of%20the%20three.
+
+            processed = new Bitmap(loaded.Width, loaded.Height);
+            Color pixel;
+            for (int y = 0; y < loaded.Height; y++)
+            {
+                for (int x = 0; x < loaded.Width; x++)
+                {
+                    pixel = loaded.GetPixel(x, y);  
+                    int sepiaRed = (int)(0.393 * pixel.R + 0.769 * pixel.G + 0.189 * pixel.B);
+                    int sepiaGreen = (int)(0.349 * pixel.R + 0.686 * pixel.G + 0.168 * pixel.B);
+                    int sepiaBlue = (int)(0.272 * pixel.R + 0.534 * pixel.G + 0.131 * pixel.B);
+                    Color sepia = Color.FromArgb(Math.Min(sepiaRed, 255), Math.Min(sepiaGreen, 255), Math.Min(sepiaBlue, 255)); //if mulapas og 255
+                    processed.SetPixel(x, y, sepia);
+                }
+            }
+
+            pictureBox2.Image = processed;
+
+        }
+
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             processed = new Bitmap(loaded.Width, loaded.Height);

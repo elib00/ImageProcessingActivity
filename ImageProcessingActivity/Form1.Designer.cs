@@ -36,6 +36,7 @@
             this.pixelCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayscalingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mirrorHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mirrorVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -78,7 +79,7 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -88,6 +89,7 @@
             this.pixelCopyToolStripMenuItem,
             this.grayscalingToolStripMenuItem,
             this.inversionToolStripMenuItem,
+            this.sepiaToolStripMenuItem,
             this.mirrorHorizontalToolStripMenuItem,
             this.mirrorVerticalToolStripMenuItem});
             this.digitalImageProcessiingToolStripMenuItem.Name = "digitalImageProcessiingToolStripMenuItem";
@@ -97,14 +99,14 @@
             // pixelCopyToolStripMenuItem
             // 
             this.pixelCopyToolStripMenuItem.Name = "pixelCopyToolStripMenuItem";
-            this.pixelCopyToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.pixelCopyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pixelCopyToolStripMenuItem.Text = "Pixel Copy";
             this.pixelCopyToolStripMenuItem.Click += new System.EventHandler(this.pixelCopyToolStripMenuItem_Click);
             // 
             // grayscalingToolStripMenuItem
             // 
             this.grayscalingToolStripMenuItem.Name = "grayscalingToolStripMenuItem";
-            this.grayscalingToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.grayscalingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grayscalingToolStripMenuItem.Text = "Grayscaling";
             this.grayscalingToolStripMenuItem.Click += new System.EventHandler(this.grayscalingToolStripMenuItem_Click);
             // 
@@ -115,16 +117,23 @@
             this.inversionToolStripMenuItem.Text = "Inversion";
             this.inversionToolStripMenuItem.Click += new System.EventHandler(this.inversionToolStripMenuItem_Click);
             // 
+            // sepiaToolStripMenuItem
+            // 
+            this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sepiaToolStripMenuItem.Text = "Sepia";
+            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
+            // 
             // mirrorHorizontalToolStripMenuItem
             // 
             this.mirrorHorizontalToolStripMenuItem.Name = "mirrorHorizontalToolStripMenuItem";
-            this.mirrorHorizontalToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.mirrorHorizontalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.mirrorHorizontalToolStripMenuItem.Text = "Mirror Horizontal";
             // 
             // mirrorVerticalToolStripMenuItem
             // 
             this.mirrorVerticalToolStripMenuItem.Name = "mirrorVerticalToolStripMenuItem";
-            this.mirrorVerticalToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.mirrorVerticalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.mirrorVerticalToolStripMenuItem.Text = "Mirror Vertical";
             // 
             // openFileDialog1
@@ -195,6 +204,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem sepiaToolStripMenuItem;
     }
 }
 
