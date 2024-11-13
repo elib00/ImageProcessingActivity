@@ -414,7 +414,8 @@ namespace ImageProcess2
 
 			return BitmapFilter.Conv3x3(b, m);
 		}
-		public static bool Sharpen(Bitmap b, int nWeight /* default to 11*/ )
+
+        public static bool Sharpen(Bitmap b, int nWeight /* default to 11*/ )
 		{
 			ConvMatrix m = new ConvMatrix();
 			m.SetAll(0);

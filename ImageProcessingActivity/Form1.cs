@@ -224,6 +224,22 @@ namespace ImageProcessingActivity
             pictureBox2.Image = processed;
         }
 
+        private void normalMeanRemovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.MeanRemoval(processed, 9);
+            pictureBox2.Image = processed;
+        }
+
+        private void edgeEnhanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EdgeEnhance(processed, 50);
+            pictureBox2.Image = processed;
+        }
+
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             processed = new Bitmap(loaded.Width, loaded.Height);
