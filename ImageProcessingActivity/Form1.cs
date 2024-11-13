@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageProcess2;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -85,8 +86,8 @@ namespace ImageProcessingActivity
                 for (int x = 0; x < loaded.Width; x++)
                 {
                     pixel = loaded.GetPixel(x, y);
-                    Color gray = Color.FromArgb(255 - pixel.R, pixel.G, pixel.B);
-                    processed.SetPixel(x, y, gray);
+                    Color inverted = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+                    processed.SetPixel(x, y, inverted);
                 }
             }
 
@@ -145,6 +146,34 @@ namespace ImageProcessingActivity
         {
             Form2 subtractionForm = new Form2();
             subtractionForm.Show();
+        }
+
+        private void smoothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded);
+            BitmapFilter.Smooth(processed, 1);
+            pictureBox2.Image = processed;
+        }
+
+        private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded);
+            BitmapFilter.Sharpen(processed, 11);
+            pictureBox2.Image = processed; 
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded);
+            BitmapFilter.GaussianBlur(processed, 6);
+            pictureBox2.Image = processed;
+        }
+
+        private void edgeDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded);
+            BitmapFilter.EdgeDetectQuick(processed);
+            pictureBox2.Image = processed;
         }
 
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
