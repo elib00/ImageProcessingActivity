@@ -176,6 +176,54 @@ namespace ImageProcessingActivity
             pictureBox2.Image = processed;
         }
 
+        private void embossLaplascianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossLaplacian(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossHorizontalVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossHorizontalVertical(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossAllDirectionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossAllDirections(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossLossyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossLossy(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossHorizontal(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (loaded == null) return;
+            processed = new Bitmap(loaded);
+            BitmapFilter.EmbossVertical(processed);
+            pictureBox2.Image = processed;
+        }
+
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             processed = new Bitmap(loaded.Width, loaded.Height);
