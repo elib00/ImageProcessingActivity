@@ -240,6 +240,12 @@ namespace ImageProcessingActivity
             pictureBox2.Image = processed;
         }
 
+        private void coinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 coinsForm = new Form3();
+            coinsForm.Show();
+        }
+
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             processed = new Bitmap(loaded.Width, loaded.Height);

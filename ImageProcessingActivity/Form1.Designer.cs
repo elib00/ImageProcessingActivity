@@ -44,6 +44,7 @@
             this.sharpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussianBlurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edgeDetectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeEnhanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossLaplascianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +52,8 @@
             this.embossHorizontalVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossAllDirectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossLossyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meanRemovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalMeanRemovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +64,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.meanRemovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.normalMeanRemovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.edgeEnhanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -76,7 +77,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.digitalImageProcessiingToolStripMenuItem,
-            this.webcamToolStripMenuItem});
+            this.webcamToolStripMenuItem,
+            this.coinsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1129, 28);
@@ -196,6 +198,13 @@
             this.edgeDetectToolStripMenuItem.Text = "Edge Detect";
             this.edgeDetectToolStripMenuItem.Click += new System.EventHandler(this.edgeDetectToolStripMenuItem_Click);
             // 
+            // edgeEnhanceToolStripMenuItem
+            // 
+            this.edgeEnhanceToolStripMenuItem.Name = "edgeEnhanceToolStripMenuItem";
+            this.edgeEnhanceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.edgeEnhanceToolStripMenuItem.Text = "Edge Enhance";
+            this.edgeEnhanceToolStripMenuItem.Click += new System.EventHandler(this.edgeEnhanceToolStripMenuItem_Click);
+            // 
             // embossToolStripMenuItem
             // 
             this.embossToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -250,6 +259,21 @@
             this.embossLossyToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.embossLossyToolStripMenuItem.Text = "Emboss Lossy";
             this.embossLossyToolStripMenuItem.Click += new System.EventHandler(this.embossLossyToolStripMenuItem_Click);
+            // 
+            // meanRemovalToolStripMenuItem
+            // 
+            this.meanRemovalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.normalMeanRemovalToolStripMenuItem});
+            this.meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
+            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.meanRemovalToolStripMenuItem.Text = "Mean Removal";
+            // 
+            // normalMeanRemovalToolStripMenuItem
+            // 
+            this.normalMeanRemovalToolStripMenuItem.Name = "normalMeanRemovalToolStripMenuItem";
+            this.normalMeanRemovalToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.normalMeanRemovalToolStripMenuItem.Text = "Normal Mean Removal";
+            this.normalMeanRemovalToolStripMenuItem.Click += new System.EventHandler(this.normalMeanRemovalToolStripMenuItem_Click);
             // 
             // webcamToolStripMenuItem
             // 
@@ -328,27 +352,12 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Adjust Brightness";
             // 
-            // meanRemovalToolStripMenuItem
+            // coinsToolStripMenuItem
             // 
-            this.meanRemovalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.normalMeanRemovalToolStripMenuItem});
-            this.meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
-            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.meanRemovalToolStripMenuItem.Text = "Mean Removal";
-            // 
-            // normalMeanRemovalToolStripMenuItem
-            // 
-            this.normalMeanRemovalToolStripMenuItem.Name = "normalMeanRemovalToolStripMenuItem";
-            this.normalMeanRemovalToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
-            this.normalMeanRemovalToolStripMenuItem.Text = "Normal Mean Removal";
-            this.normalMeanRemovalToolStripMenuItem.Click += new System.EventHandler(this.normalMeanRemovalToolStripMenuItem_Click);
-            // 
-            // edgeEnhanceToolStripMenuItem
-            // 
-            this.edgeEnhanceToolStripMenuItem.Name = "edgeEnhanceToolStripMenuItem";
-            this.edgeEnhanceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.edgeEnhanceToolStripMenuItem.Text = "Edge Enhance";
-            this.edgeEnhanceToolStripMenuItem.Click += new System.EventHandler(this.edgeEnhanceToolStripMenuItem_Click);
+            this.coinsToolStripMenuItem.Name = "coinsToolStripMenuItem";
+            this.coinsToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.coinsToolStripMenuItem.Text = "Coins";
+            this.coinsToolStripMenuItem.Click += new System.EventHandler(this.coinsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -411,6 +420,7 @@
         private System.Windows.Forms.ToolStripMenuItem meanRemovalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalMeanRemovalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edgeEnhanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coinsToolStripMenuItem;
     }
 }
 
