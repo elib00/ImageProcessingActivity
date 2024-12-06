@@ -1,1 +1,1 @@
-Subtraction and the Convolution Matrix are in the DIP menu
+Subtraction and the Convolution Matrix Processes are in the DIP menu
