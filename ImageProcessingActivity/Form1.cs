@@ -63,6 +63,7 @@ namespace ImageProcessingActivity
 
         private void pixelCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) return;
             processed = new Bitmap(loaded.Width, loaded.Height);
             Color pixel;
             for (int y = 0; y < loaded.Height; y++)
@@ -79,6 +80,7 @@ namespace ImageProcessingActivity
 
         private void inversionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(loaded == null) return;
             processed = new Bitmap(loaded.Width, loaded.Height);
             Color pixel;
             for (int y = 0; y < loaded.Height; y++)
@@ -100,6 +102,7 @@ namespace ImageProcessingActivity
             //sepia algorithm 
             //https://cs50.harvard.edu/college/2019/fall/psets/4/filter/less/#:~:text=Sepia,original%20values%20of%20the%20three.
 
+            if(loaded == null) return;
             processed = new Bitmap(loaded.Width, loaded.Height);
             Color pixel;
             for (int y = 0; y < loaded.Height; y++)
@@ -121,6 +124,7 @@ namespace ImageProcessingActivity
 
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) return;
             BasicDIP.Histogram(ref loaded, ref processed);
             pictureBox2.Image = processed;
 
@@ -128,6 +132,7 @@ namespace ImageProcessingActivity
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
+            if(loaded == null) return;
             BasicDIP.Brightness(ref loaded, ref processed, trackBar1.Value);
             pictureBox2.Image = processed;
         }
@@ -150,6 +155,7 @@ namespace ImageProcessingActivity
 
         private void smoothToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.Smooth(processed, 1);
             pictureBox2.Image = processed;
@@ -157,6 +163,7 @@ namespace ImageProcessingActivity
 
         private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if( loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.Sharpen(processed, 11);
             pictureBox2.Image = processed; 
@@ -164,6 +171,7 @@ namespace ImageProcessingActivity
 
         private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.GaussianBlur(processed, 6);
             pictureBox2.Image = processed;
@@ -171,6 +179,7 @@ namespace ImageProcessingActivity
 
         private void edgeDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if( loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.EdgeDetectQuick(processed);
             pictureBox2.Image = processed;
@@ -178,6 +187,7 @@ namespace ImageProcessingActivity
 
         private void embossLaplascianToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if( loaded == null) return;
             if (loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.EmbossLaplacian(processed);
@@ -186,6 +196,7 @@ namespace ImageProcessingActivity
 
         private void embossHorizontalVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if( loaded == null) return;
             if (loaded == null) return;
             processed = new Bitmap(loaded);
             BitmapFilter.EmbossHorizontalVertical(processed);
@@ -246,8 +257,16 @@ namespace ImageProcessingActivity
             coinsForm.Show();
         }
 
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            devices[0].Sendmessage();
+        }
+
         private void grayscalingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(loaded == null) return;
             processed = new Bitmap(loaded.Width, loaded.Height);
             Color pixel;
             int average;

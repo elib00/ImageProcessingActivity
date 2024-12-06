@@ -38,6 +38,7 @@ namespace ImageProcessingActivity
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (imageA == null || imageB == null) return;
             resultImage = new Bitmap(imageA.Width, imageA.Height);
             Color myGreen = Color.FromArgb(0, 255, 0);
             int grayGreen = (int)((myGreen.R + myGreen.G + myGreen.B) / 3);
